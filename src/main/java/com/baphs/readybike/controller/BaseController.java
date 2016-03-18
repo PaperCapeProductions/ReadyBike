@@ -1,4 +1,4 @@
-package com.baphs.controller;
+package com.baphs.readybike.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -31,7 +31,7 @@ public class BaseController {
 	@RequestMapping(value = "/{name}", method = RequestMethod.GET)
 	public String welcomeName(@PathVariable String name, ModelMap model) {
 		
-		model.addAttribute("message", "Welcome" + name);
+		model.addAttribute("message", "Welcome " + name);
 		model.addAttribute("counter", ++_counter);
 		
 		if (logger.isDebugEnabled()) {
