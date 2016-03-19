@@ -29,7 +29,7 @@
 					class="form-control" required="true" placeholder="Last Name" />
 			</div>
 			<button type="submit" class="btn btn-info">
-				<span class="glyphicon glyphicon-search"></span> Add
+				<span class="glyphicon glyphicon-user"></span> Add
 			</button>
 			<br></br> <br></br>
 		</form>
