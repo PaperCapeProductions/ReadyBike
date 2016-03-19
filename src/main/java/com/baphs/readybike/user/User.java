@@ -10,6 +10,12 @@ public class User {
 	private String _firstName;
 	private String _lastName;
 	
+	/**
+	 * Default Constructor
+	 */
+	public User() {
+		
+	}
 	
 	/**
 	 * @param firstName
