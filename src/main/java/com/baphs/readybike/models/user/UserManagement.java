@@ -1,4 +1,4 @@
-package com.baphs.readybike.user;
+package com.baphs.readybike.models.user;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Session;

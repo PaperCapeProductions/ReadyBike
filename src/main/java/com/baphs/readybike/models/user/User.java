@@ -1,4 +1,4 @@
-package com.baphs.readybike.user;
+package com.baphs.readybike.models.user;
 
 /**
  * @author andres
