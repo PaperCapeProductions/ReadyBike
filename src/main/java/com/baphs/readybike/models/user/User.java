@@ -1,9 +1,15 @@
 package com.baphs.readybike.models.user;
 
+import javax.persistence.UniqueConstraint;
+
+import org.hibernate.annotations.DynamicUpdate;
+
 /**
  * @author andres
  *
  */
+
+@DynamicUpdate
 public class User {
 	
 	private int _id;
