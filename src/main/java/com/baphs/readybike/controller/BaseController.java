@@ -10,13 +10,40 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.baphs.readybike.models.user.User;
 
+/**
+ * @author andres
+ *
+ */
 @Controller
 public class BaseController {
 	
-	private static int _counter = 0;
+	//==============================================================================
+	// CONSTANTS
+	//==============================================================================
+	
 	private static final String VIEW_INDEX = "index";
 	private static final Logger logger = LoggerFactory.getLogger(BaseController.class);
 	
+	//==============================================================================
+	// VARIABLES
+	//==============================================================================
+	
+	private static int _counter = 0;
+	
+	//==============================================================================
+	// CONSTRUCTORS
+	//==============================================================================
+	
+	
+	
+	//==============================================================================
+	// PUBLIC METHODS
+	//==============================================================================
+	
+	/**
+	 * @param model
+	 * @return
+	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String welcome(Model model) {
 		model.addAttribute("user", new User("Andres", "Pineda"));
@@ -29,6 +56,11 @@ public class BaseController {
 		return VIEW_INDEX;
 	}
 	
+	/**
+	 * @param user
+	 * @param model
+	 * @return
+	 */
 	@RequestMapping(value = "/", method = RequestMethod.POST)
 	public String welcomeName(@ModelAttribute User user, Model model) {
 		
@@ -41,5 +73,9 @@ public class BaseController {
 		
 		return VIEW_INDEX;
 	}
+	
+	//==============================================================================
+	// PRIVATE METHODS
+	//==============================================================================
 	
 }
