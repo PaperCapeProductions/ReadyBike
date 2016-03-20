@@ -20,11 +20,19 @@
 		<form action="#" th:action="@{/index}" th:object="${user}" method="post">
 			<div class="form-group col-xs-5">
 				<input type="text" name="firstName" id="firstName"
-					class="form-control" required="true" placeholder="First Name" th:field="*{_firstName}" value="${user.firstName}"/>
+					class="form-control" required="true" placeholder="First Name" th:field="*{_firstName}" value="${user.firstName}" />
 			</div>
 			<div class="form-group col-xs-5">
 				<input type="text" name="lastName" id="lastName"
-					class="form-control" required="true" placeholder="Last Name" th:field="*{_lastName}" value="${user.lastName}"/>
+					class="form-control" required="true" placeholder="Last Name" th:field="*{_lastName}" value="${user.lastName}" />
+			</div>
+			<div class="form-group col-xs-5">
+				<input type="text" name="username" id="username"
+					class="form-control" required="true" placeholder="Username" th:field="*{_username}" value="${user.username}" />
+			</div>
+			<div class="form-group col-xs-5">
+				<input type="text" name="password" id="password"
+					class="form-control" required="true" placeholder="Password" th:field="*{_password}" />
 			</div>
 			<button type="submit" class="btn btn-info">
 				<span class="glyphicon glyphicon-user"></span> Add

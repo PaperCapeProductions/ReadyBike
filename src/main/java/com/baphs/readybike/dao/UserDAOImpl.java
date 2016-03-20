@@ -3,10 +3,8 @@ package com.baphs.readybike.dao;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.baphs.readybike.models.user.User;
-import com.baphs.readybike.utils.HBMSessionFactory;
 
 /**
  * @author andres
@@ -17,7 +15,7 @@ public class UserDAOImpl extends HibernateDaoSupport implements IUserDAO {
 	//==============================================================================
 	// CONSTANTS
 	//==============================================================================
-	
+
 	//==============================================================================
 	// VARIABLES
 	//==============================================================================
