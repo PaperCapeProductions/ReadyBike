@@ -17,16 +17,14 @@
 	<div class="container">
 		<h2 class="text-center">Add User</h2>
 		<!--Search Form -->
-		<form action="/user" method="get" id="addUser" role="form">
-			<input type="hidden" id="addAction" name="addAction"
-				value="addNewUser" />
+		<form action="#" th:action="@{/index}" th:object="${user}" method="post">
 			<div class="form-group col-xs-5">
 				<input type="text" name="firstName" id="firstName"
-					class="form-control" required="true" placeholder="First Name" />
+					class="form-control" required="true" placeholder="First Name" th:field="*{_firstName}" value="${user.firstName}"/>
 			</div>
 			<div class="form-group col-xs-5">
 				<input type="text" name="lastName" id="lastName"
-					class="form-control" required="true" placeholder="Last Name" />
+					class="form-control" required="true" placeholder="Last Name" th:field="*{_lastName}" value="${user.lastName}"/>
 			</div>
 			<button type="submit" class="btn btn-info">
 				<span class="glyphicon glyphicon-user"></span> Add
