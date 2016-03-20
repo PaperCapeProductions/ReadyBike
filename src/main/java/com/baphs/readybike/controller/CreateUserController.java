@@ -11,20 +11,21 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.baphs.readybike.dao.UserDAOImpl;
 import com.baphs.readybike.models.user.User;
 import com.baphs.readybike.utils.HBMSessionFactory;
+import com.baphs.readybike.utils.SecurityUtils;
 
 /**
  * @author andres
  *
  */
 @Controller
-public class BaseController {
+public class CreateUserController {
 	
 	//==============================================================================
 	// CONSTANTS
 	//==============================================================================
 	
 	private static final String VIEW_INDEX = "index";
-	private static final Logger logger = LoggerFactory.getLogger(BaseController.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(CreateUserController.class);
 	
 	//==============================================================================
 	// VARIABLES
@@ -37,7 +38,7 @@ public class BaseController {
 	// CONSTRUCTORS
 	//==============================================================================
 	
-	public BaseController() {
+	public CreateUserController() {
 		_user = new User();
 	}
 	
@@ -53,8 +54,8 @@ public class BaseController {
 	public String welcome(Model model) {
 		model.addAttribute("user", _user);
 		
-		if (logger.isDebugEnabled()) {
-			logger.debug("[Welcome] counter : {}", ++_counter);
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("[Welcome] counter : {}", ++_counter);
 		}
 		
 		// Spring uses InternalResourceViewResolver and return back index.jsp
@@ -72,11 +73,13 @@ public class BaseController {
 		//model.addAttribute("message", "Welcome " + name);
 		//model.addAttribute("counter", ++_counter);
 		UserDAOImpl userDAO = new UserDAOImpl(HBMSessionFactory.getSessionFactory());
-		user.setUsername("bapin93");
+		
+		user.setPassword(SecurityUtils.generateSHA256(user.getPassword()));
+		
 		userDAO.addUser(user);
 		
-		if (logger.isDebugEnabled()) {
-			logger.debug("Firstname: " + user.getFirstName() + " Lastname: " + user.getLastName());
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("Firstname: " + user.getFirstName() + " Lastname: " + user.getLastName());
 		}
 		
 		return VIEW_INDEX;
