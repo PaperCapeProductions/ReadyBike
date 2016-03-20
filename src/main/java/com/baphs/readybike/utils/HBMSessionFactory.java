@@ -44,7 +44,7 @@ public class HBMSessionFactory {
 	public static SessionFactory getSessionFactory() {
 		if (_sessionFactory == null) {
 			try {
-				_sessionFactory = new Configuration().configure("/src/main/resources/hibernate/hibernate.cfg.xml").buildSessionFactory();
+				_sessionFactory = new Configuration().configure("/hibernate/hibernate.cfg.xml").buildSessionFactory();
 			} catch (Throwable t) {
 				if (logger.isDebugEnabled()) {
 					logger.debug("Throwing Error due to: ", t.getMessage());

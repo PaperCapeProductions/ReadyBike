@@ -5,16 +5,25 @@
 
 <hibernate-mapping package="com.baphs.readybike.user">
 
-	<class name="com.baphs.readybike.models.user.User" table="USERS"
-		catalog="baphs">
+	<class name="com.baphs.readybike.models.user.User" table="USERS">
 
-		<id name="userId" type="java.lang.Long">
+		<id name="id" type="java.lang.Long">
 			<column name="USER_ID" />
 			<generator class="identity" />
 		</id>
 
-		<property name="firstName" column="FIRSTNAME" />
-		<property name="lastName" column="LASTNAME" />
+		<property name="firstName" type="string">
+			<column name="firstname" length="32" />
+		</property>
+		<property name="lastName" type="string">
+			<column name="lastname" length="32" />
+		</property>
+		<property name="username" type="string">
+			<column name="username" length="32" />
+		</property>
+		<property name="password" type="string">
+			<column name="password" length="512" />
+		</property>
 
 	</class>
 

@@ -15,9 +15,11 @@ public class User {
 	// VARIABLES
 	//==============================================================================
 	
-	private int _id;
+	private Long _id;
 	private String _firstName;
 	private String _lastName;
+	private String _username;
+	private String _password;
 	
 	//==============================================================================
 	// CONSTRUCTORS
@@ -38,22 +40,23 @@ public class User {
 	 * @param firstName
 	 * @param lastName
 	 */
-	public User(final String firstName, final String lastName) {
+	public User(final String firstName, final String lastName, final String username) {
 		_firstName = firstName;
 		_lastName = lastName;
+		_username = username;
 	}
 	
 	/**
 	 * @return
 	 */
-	public int getId() {
+	public Long getId() {
 		return _id;
 	}
 
 	/**
 	 * @param id
 	 */
-	public void setId(int id) {
+	public void setId(Long id) {
 		_id = id;
 	}
 
@@ -83,6 +86,34 @@ public class User {
 	 */
 	public void setLastName(String lastName) {
 		_lastName = lastName;
+	}
+	
+	/**
+	 * @return
+	 */
+	public String getUsername() {
+		return _username;
+	}
+
+	/**
+	 * @param username
+	 */
+	public void setUsername(String username) {
+		_username = username;
+	}
+	
+	/**
+	 * @return
+	 */
+	public String getPassword() {
+		return _password;
+	}
+
+	/**
+	 * @param username
+	 */
+	public void setPassword(String password) {
+		_password = password;
 	}
 	
 	//==============================================================================

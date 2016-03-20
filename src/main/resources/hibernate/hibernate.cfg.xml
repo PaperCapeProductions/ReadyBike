@@ -14,7 +14,7 @@
 		<property name="hibernate.hbm2ddl.auto">create</property>
 
 		<!-- List of XML mapping files -->
-		<mapping resource="com/baphs/readybike/models/user/User.hbm.xml" />
+		<mapping resource="/hibernate/User.hbm.xml" />
 
 	</session-factory>
 </hibernate-configuration>

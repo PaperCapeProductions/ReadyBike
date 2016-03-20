@@ -8,7 +8,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.baphs.readybike.dao.UserDAOImpl;
 import com.baphs.readybike.models.user.User;
+import com.baphs.readybike.utils.HBMSessionFactory;
 
 /**
  * @author andres
@@ -29,12 +31,15 @@ public class BaseController {
 	//==============================================================================
 	
 	private static int _counter = 0;
+	private User _user;
 	
 	//==============================================================================
 	// CONSTRUCTORS
 	//==============================================================================
 	
-	
+	public BaseController() {
+		_user = new User();
+	}
 	
 	//==============================================================================
 	// PUBLIC METHODS
@@ -46,7 +51,7 @@ public class BaseController {
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String welcome(Model model) {
-		model.addAttribute("user", new User("Andres", "Pineda"));
+		model.addAttribute("user", _user);
 		
 		if (logger.isDebugEnabled()) {
 			logger.debug("[Welcome] counter : {}", ++_counter);
@@ -66,6 +71,9 @@ public class BaseController {
 		
 		//model.addAttribute("message", "Welcome " + name);
 		//model.addAttribute("counter", ++_counter);
+		UserDAOImpl userDAO = new UserDAOImpl(HBMSessionFactory.getSessionFactory());
+		user.setUsername("bapin93");
+		userDAO.addUser(user);
 		
 		if (logger.isDebugEnabled()) {
 			logger.debug("Firstname: " + user.getFirstName() + " Lastname: " + user.getLastName());
