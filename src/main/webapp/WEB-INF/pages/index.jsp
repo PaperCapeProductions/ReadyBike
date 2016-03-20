@@ -31,7 +31,7 @@
 					class="form-control" required="true" placeholder="Username" th:field="*{_username}" value="${user.username}" />
 			</div>
 			<div class="form-group col-xs-5">
-				<input type="text" name="password" id="password"
+				<input type="password" name="password" id="password"
 					class="form-control" required="true" placeholder="Password" th:field="*{_password}" />
 			</div>
 			<button type="submit" class="btn btn-info">
