@@ -19,34 +19,34 @@ import com.baphs.readybike.utils.SecurityUtils;
  */
 @Controller
 public class CreateUserController {
-	
+
 	//==============================================================================
 	// CONSTANTS
 	//==============================================================================
-	
+
 	private static final String VIEW_LOGIN = "login";
 	private static final String VIEW_INDEX = "index";
 	private static final Logger LOGGER = LoggerFactory.getLogger(CreateUserController.class);
-	
+
 	//==============================================================================
 	// VARIABLES
 	//==============================================================================
-	
+
 	private static int _counter = 0;
 	private User _user;
-	
+
 	//==============================================================================
 	// CONSTRUCTORS
 	//==============================================================================
-	
+
 	public CreateUserController() {
 		_user = new User();
 	}
-	
+
 	//==============================================================================
 	// PUBLIC METHODS
 	//==============================================================================
-	
+
 	/**
 	 * @param model
 	 * @return
@@ -54,15 +54,15 @@ public class CreateUserController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String welcome(Model model) {
 		model.addAttribute("user", _user);
-		
+
 		if (LOGGER.isDebugEnabled()) {
 			LOGGER.debug("[Welcome] counter : {}", ++_counter);
 		}
-		
+
 		// Spring uses InternalResourceViewResolver and return back index.jsp
 		return VIEW_INDEX;
 	}
-	
+
 	/**
 	 * @param user
 	 * @param model
@@ -71,16 +71,14 @@ public class CreateUserController {
 	@RequestMapping(value = "/", method = RequestMethod.POST)
 	public String welcomeName(@ModelAttribute User user, Model model) {
 
-		if (user != null) {
-			UserDAOImpl userDAO = new UserDAOImpl(HBMSessionFactory.getSessionFactory());
+		UserDAOImpl userDAO = new UserDAOImpl(HBMSessionFactory.getSessionFactory());
 
-			user.setPassword(SecurityUtils.generateSHA256(user.getPassword()));
+		user.setPassword(SecurityUtils.generateSHA256(user.getPassword()));
 
-			userDAO.addUser(user);
+		userDAO.addUser(user);
 
-			if (LOGGER.isDebugEnabled()) {
-				LOGGER.debug("Firstname: " + user.getFirstName() + " Lastname: " + user.getLastName());
-			}
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("Firstname: " + user.getFirstName() + " Lastname: " + user.getLastName());
 		}
 
 		return VIEW_LOGIN;

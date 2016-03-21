@@ -17,7 +17,7 @@
 	<div class="container">
 		<h2 class="text-center">Add User</h2>
 		<!--Search Form -->
-		<form action="login" th:action="@{/index}" th:object="${user}" method="post">
+		<form th:action="@{/index}" th:object="${user}" method="post">
 			<div class="form-group col-xs-5">
 				<input type="text" name="firstName" id="firstName"
 					class="form-control" required="true" placeholder="First Name" th:field="*{_firstName}" value="${user.firstName}" />
