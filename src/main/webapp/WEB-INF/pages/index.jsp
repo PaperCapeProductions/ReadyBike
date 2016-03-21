@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Add User</title>
 
 <link href="<c:url value="/resources/css/bootstrap.css" />" rel="stylesheet">
 <script src="<c:url value="/resources/js/bootstrap.js" />"></script>
@@ -17,7 +17,7 @@
 	<div class="container">
 		<h2 class="text-center">Add User</h2>
 		<!--Search Form -->
-		<form action="#" th:action="@{/index}" th:object="${user}" method="post">
+		<form action="login" th:action="@{/index}" th:object="${user}" method="post">
 			<div class="form-group col-xs-5">
 				<input type="text" name="firstName" id="firstName"
 					class="form-control" required="true" placeholder="First Name" th:field="*{_firstName}" value="${user.firstName}" />
