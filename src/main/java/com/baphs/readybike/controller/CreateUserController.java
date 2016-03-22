@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.baphs.readybike.dao.UserDAOImpl;
 import com.baphs.readybike.models.user.User;
+import com.baphs.readybike.models.user.UserManagement;
 import com.baphs.readybike.utils.HBMSessionFactory;
 import com.baphs.readybike.utils.SecurityUtils;
 
@@ -71,11 +72,11 @@ public class CreateUserController {
 	@RequestMapping(value = "/", method = RequestMethod.POST)
 	public String welcomeName(@ModelAttribute User user, Model model) {
 
-		UserDAOImpl userDAO = new UserDAOImpl(HBMSessionFactory.getSessionFactory());
+		UserManagement userManagement = new UserManagement();
 
 		user.setPassword(SecurityUtils.generateSHA256(user.getPassword()));
 
-		userDAO.addUser(user);
+		userManagement.addUser(user);
 
 		if (LOGGER.isDebugEnabled()) {
 			LOGGER.debug("Firstname: " + user.getFirstName() + " Lastname: " + user.getLastName());
